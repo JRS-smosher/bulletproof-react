@@ -37,6 +37,20 @@ export type Discussion = Entity<{
   author: User;
 }>;
 
+export type Certificate = {
+  expirationDate: number;
+  duration: number;
+};
+
+export type Equipment = Entity<{
+  equipmentCategory: string;
+  jurisdictionNumber: string;
+  altOwnerNumber?: string;
+  serialNumber?: string;
+  nationalBoardNumber: string;
+  certificate: Certificate;
+}>;
+
 export type Comment = Entity<{
   body: string;
   discussionId: string;

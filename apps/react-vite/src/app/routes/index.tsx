@@ -5,6 +5,7 @@ import { ProtectedRoute } from '@/lib/auth';
 
 import { discussionLoader } from './app/discussions/discussion';
 import { discussionsLoader } from './app/discussions/discussions';
+import { equipmentLoader } from './app/equipment/equipment';
 import { AppRoot } from './app/root';
 import { usersLoader } from './app/users';
 
@@ -58,6 +59,16 @@ export const createRouter = (queryClient: QueryClient) =>
             return { Component: DiscussionRoute };
           },
           loader: discussionLoader(queryClient),
+        },
+        {
+          path: 'equipment',
+          lazy: async () => {
+            const { EquipmentRoute } = await import(
+              './app/equipment/equipment'
+            );
+            return { Component: EquipmentRoute };
+          },
+          loader: equipmentLoader(queryClient),
         },
         {
           path: 'users',

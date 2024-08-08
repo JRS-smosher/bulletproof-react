@@ -1,4 +1,11 @@
-import { Home, PanelLeft, Folder, Users, User2 } from 'lucide-react';
+import {
+  Home,
+  PanelLeft,
+  Folder,
+  Users,
+  User2,
+  Footprints,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useNavigation } from 'react-router-dom';
 
@@ -82,6 +89,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navigation = [
     { name: 'Dashboard', to: '.', icon: Home },
     { name: 'Discussions', to: './discussions', icon: Folder },
+    { name: 'Equipment', to: './equipment', icon: Footprints },
     checkAccess({ allowedRoles: [ROLES.ADMIN] }) && {
       name: 'Users',
       to: './users',
